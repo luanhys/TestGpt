@@ -1,0 +1,26 @@
+# Virtuelle Umgebungen ignorieren
+venv/
+env/
+.venv/
+
+# Cache-Dateien von Python ignorieren
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Temporäre Dateien / Editor-Dateien ignorieren
+*.log
+*.tmp
+*.swp
+*.bak
+.DS_Store
+Thumbs.db
+
+# Private Schlüssel oder sensitive Dateien ignorieren
+service_account.json
+.env
+
+# Sonstiges
+.idea/
+*.sqlite3
