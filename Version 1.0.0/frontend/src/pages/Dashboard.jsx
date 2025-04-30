@@ -1,54 +1,71 @@
-import React from 'react';
+import React from "react";
+import { Card, CardContent } from "../components/ui/Card";
+import { Button } from "../components/ui/Button";
+import { Input } from "../components/ui/Input";
+import { Search, CheckSquare, MessageSquare, HelpCircle, Settings, CreditCard, LayoutDashboard, List } from "lucide-react";
 
-export default function BotControlDashboard() {
+export default function Dashboard() {
   return (
-    <div className="max-w-sm mx-auto p-4 bg-white shadow-lg rounded-2xl">
-      <h1 className="text-2xl font-semibold text-gray-900">BotControl</h1>
-      <p className="text-gray-600 mt-1">Welcome, Watch Shop König!</p>
+    <div className="flex h-screen">
+      {/* Sidebar */}
+      <aside className="w-64 bg-gray-800 text-white p-4 space-y-4">
+        <h1 className="text-2xl font-bold mb-6">BotControl</h1>
+        <nav className="space-y-2">
+          <div className="flex items-center gap-2"><LayoutDashboard size={18}/> Dashboard</div>
+          <div className="flex items-center gap-2"><List size={18}/> Produkte</div>
+          <div className="flex items-center gap-2"><MessageSquare size={18}/> Antworten</div>
+          <div className="flex items-center gap-2"><CreditCard size={18}/> Abonnement</div>
+          <div className="flex items-center gap-2"><Settings size={18}/> Einstellungen</div>
+          <div className="flex items-center gap-2"><HelpCircle size={18}/> Support</div>
+        </nav>
+      </aside>
 
-      {/* Usage */}
-      <div className="mt-6">
-        <p className="text-sm font-medium text-gray-700 mb-1">Usage</p>
-        <div className="w-full bg-gray-200 rounded-full h-2.5">
-          <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: '85.6%' }}></div>
+      {/* Main Content */}
+      <main className="flex-1 p-6 bg-gray-50">
+        <h2 className="text-xl font-semibold mb-4">Welcome, Watch Shop König!</h2>
+
+        <div className="grid grid-cols-3 gap-4">
+          {/* Usage */}
+          <Card className="col-span-3">
+            <CardContent className="p-4">
+              <div className="font-semibold mb-2">Usage</div>
+              <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
+                <div className="bg-blue-600 h-2 rounded-full" style={{ width: "85.6%" }}></div>
+              </div>
+              <p className="text-sm text-gray-600">428 / 500 GPT Responses</p>
+            </CardContent>
+          </Card>
+
+          {/* Produkte */}
+          <Card>
+            <CardContent className="p-4">
+              <div className="font-semibold mb-2">Produkte in Bot</div>
+              <div className="relative mb-2">
+                <Input placeholder="Such..." className="pl-8" />
+                <Search className="absolute top-2.5 left-2.5 h-4 w-4 text-gray-400" />
+              </div>
+              <p className="text-sm">“When will the gold watch be back in stock?”</p>
+            </CardContent>
+          </Card>
+
+          {/* Subscription */}
+          <Card>
+            <CardContent className="p-4">
+              <div className="font-semibold mb-1">Abonnement</div>
+              <p className="text-sm">Standard</p>
+              <p className="text-sm text-gray-600 mb-2">€15/mo</p>
+              <Button>Upgrade</Button>
+            </CardContent>
+          </Card>
         </div>
-        <p className="text-sm text-gray-600 mt-1">428 / 500 GPT Responses</p>
-      </div>
 
-      {/* Products in Bot */}
-      <div className="mt-6 p-4 bg-gray-50 rounded-xl">
-        <p className="text-sm font-medium text-gray-700">Products in Bot</p>
-        <p className="text-gray-500 mt-1 italic">“When will the gold watch be back in stock?”</p>
-        <p className="text-xl font-semibold text-right mt-2">37</p>
-      </div>
-
-      {/* Subscription */}
-      <div className="mt-6 p-4 bg-gray-50 rounded-xl flex items-center justify-between">
-        <div>
-          <p className="text-sm font-medium text-gray-700">Subscription</p>
-          <p className="text-gray-600 mt-1">€15/mo</p>
+        {/* Buttons */}
+        <div className="mt-6 grid grid-cols-3 gap-4">
+          <Button variant="outline" className="flex gap-2 items-center"><CheckSquare size={16}/> Produktliste bearbeiten</Button>
+          <Button variant="outline" className="flex gap-2 items-center"><MessageSquare size={16}/> Antworten anpassen</Button>
+          <Button variant="outline" className="flex gap-2 items-center"><HelpCircle size={16}/> Support kontaktieren</Button>
         </div>
-        <div className="flex items-center gap-2">
-          <p className="text-sm font-semibold text-gray-800">Standard</p>
-          <button className="bg-blue-600 text-white text-sm px-3 py-1 rounded-lg hover:bg-blue-700">Upgrade</button>
-        </div>
-      </div>
-
-      {/* Buttons */}
-      <div className="mt-6 space-y-3">
-        <button className="w-full flex items-center gap-2 border border-gray-300 rounded-xl px-4 py-2 hover:bg-gray-50">
-          <span className="text-blue-600 text-xl">📋</span>
-          <span className="text-blue-600 font-medium">Edit Product List</span>
-        </button>
-        <button className="w-full flex items-center gap-2 border border-gray-300 rounded-xl px-4 py-2 hover:bg-gray-50">
-          <span className="text-blue-600 text-xl">✏️</span>
-          <span className="text-blue-600 font-medium">Customize Responses</span>
-        </button>
-        <button className="w-full flex items-center gap-2 border border-gray-300 rounded-xl px-4 py-2 hover:bg-gray-50">
-          <span className="text-blue-600 text-xl">🛟</span>
-          <span className="text-blue-600 font-medium">Contact Support</span>
-        </button>
-      </div>
+      </main>
     </div>
   );
 }
