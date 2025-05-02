@@ -3,6 +3,7 @@ import { Card, CardContent } from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
 import { Input } from "../components/ui/Input";
 import { Search, CheckSquare, MessageSquare, HelpCircle, Settings, CreditCard, LayoutDashboard, List } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
   return (
@@ -12,7 +13,9 @@ export default function Dashboard() {
         <h1 className="text-2xl font-bold mb-6">BotControl</h1>
         <nav className="space-y-2">
           <div className="flex items-center gap-2"><LayoutDashboard size={18}/> Dashboard</div>
-          <div className="flex items-center gap-2"><List size={18}/> Produkte</div>
+          <Link to="/products" className="flex items-center gap-2 hover:text-gray-300">
+            <List size={18}/> Produkte
+          </Link>
           <div className="flex items-center gap-2"><MessageSquare size={18}/> Antworten</div>
           <div className="flex items-center gap-2"><CreditCard size={18}/> Abonnement</div>
           <div className="flex items-center gap-2"><Settings size={18}/> Einstellungen</div>
